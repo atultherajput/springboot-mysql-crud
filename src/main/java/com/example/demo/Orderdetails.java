@@ -1,22 +1,18 @@
 package com.example.demo;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import java.math.BigDecimal;
 
-@Entity
 public class Orderdetails {
     private Integer ordernumber;
     private String productcode;
     private Integer quantityordered;
-    private Double priceeach;
+    private BigDecimal priceeach;
     private Integer orderlinenumber;
 
     public Orderdetails() {
     }
 
-    public Orderdetails(Integer ordernumber, String productcode, Integer quantityordered, Double priceeach, Integer orderlinenumber) {
+    public Orderdetails(Integer ordernumber, String productcode, Integer quantityordered, BigDecimal priceeach, Integer orderlinenumber) {
         this.ordernumber = ordernumber;
         this.productcode = productcode;
         this.quantityordered = quantityordered;
@@ -24,8 +20,6 @@ public class Orderdetails {
         this.orderlinenumber = orderlinenumber;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getOrdernumber() {
         return ordernumber;
     }
@@ -50,11 +44,11 @@ public class Orderdetails {
         this.quantityordered = quantityordered;
     }
 
-    public Double getPriceeach() {
+    public BigDecimal getPriceeach() {
         return priceeach;
     }
 
-    public void setPriceeach(Double priceeach) {
+    public void setPriceeach(BigDecimal priceeach) {
         this.priceeach = priceeach;
     }
 
@@ -64,5 +58,16 @@ public class Orderdetails {
 
     public void setOrderlinenumber(Integer orderlinenumber) {
         this.orderlinenumber = orderlinenumber;
+    }
+
+    @Override
+    public String toString() {
+        return "Orderdetails{" +
+                "ordernumber=" + ordernumber +
+                ", productcode='" + productcode + '\'' +
+                ", quantityordered=" + quantityordered +
+                ", priceeach=" + priceeach +
+                ", orderlinenumber=" + orderlinenumber +
+                '}';
     }
 }
