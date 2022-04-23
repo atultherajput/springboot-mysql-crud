@@ -16,7 +16,7 @@ public class OrderDetailsController {
 
         Class.forName("com.mysql.jdbc.Driver");
         Connection con = DriverManager.getConnection(
-                "jdbc:mysql://3.37.223.252:3306/classicmodels", "atul", "password");
+                "jdbc:mysql://localhost:3306/classicmodels", "atul", "password");
         Statement stmt = con.createStatement();
         ResultSet rs = stmt.executeQuery("select * from orderdetails");
         while (rs.next()) {
