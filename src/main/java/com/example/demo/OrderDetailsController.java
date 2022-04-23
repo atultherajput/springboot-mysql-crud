@@ -14,7 +14,7 @@ public class OrderDetailsController {
     public List<Orderdetails> list() throws ClassNotFoundException, SQLException {
         List<Orderdetails> result = new ArrayList<>();
 
-        Class.forName("com.mysql.jdbc.Driver");
+        Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/classicmodels", "atul", "password");
         Statement stmt = con.createStatement();
