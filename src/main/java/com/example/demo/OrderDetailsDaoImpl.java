@@ -12,30 +12,30 @@ import java.util.List;
 import java.util.Map;
 
 @Repository
-public class OrderDetailsDaoImpl extends JdbcDaoSupport implements OrderDetailsDao{
+public class OrderDetailsDaoImpl extends JdbcDaoSupport implements OrderDetailsDao {
     @Autowired
     DataSource dataSource;
 
     @PostConstruct
-    private void initialize(){
+    private void initialize() {
         setDataSource(dataSource);
     }
 
     @Override
-    public List<Orderdetails> findAll(){
+    public List<Orderdetails> findAll() {
 
         String sql = "SELECT * FROM orderdetails";
 
         List<Map<String, Object>> rows = getJdbcTemplate().queryForList(sql);
 
         List<Orderdetails> result = new ArrayList<>();
-        for(Map<String, Object> row:rows){
+        for (Map<String, Object> row : rows) {
             Orderdetails res = new Orderdetails();
             res.setOrdernumber((Integer) row.get("orderNumber"));
-            res.setProductcode((String)row.get("productCode"));
-            res.setQuantityordered((Integer)row.get("quantityOrdered"));
+            res.setProductcode((String) row.get("productCode"));
+            res.setQuantityordered((Integer) row.get("quantityOrdered"));
             res.setPriceeach((BigDecimal) row.get("priceEach"));
-            res.setOrderlinenumber((Integer)row.get("orderLineNumber"));
+            res.setOrderlinenumber((Integer) row.get("orderLineNumber"));
             result.add(res);
         }
 

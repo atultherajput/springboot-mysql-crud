@@ -6,10 +6,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class OrderDetailsServiceImpl implements OrderDetailsService{
+public class OrderDetailsServiceImpl implements OrderDetailsService {
 
     @Autowired
     OrderDetailsDao orderDetailsDao;
+
     public List<Orderdetails> listAll() {
         return orderDetailsDao.findAll();
     }
